@@ -1,0 +1,7 @@
+#!/usr/local/bin/zsh
+
+# Add links to .configure on home directory
+if [ -d "$HOME/.config" ]; then
+  echo "Setting up .confg files"
+  stow config -t ../.config
+fi
