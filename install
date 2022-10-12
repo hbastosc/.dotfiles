@@ -3,5 +3,5 @@
 # Add links to .configure on home directory
 if [ -d "$HOME/.config" ]; then
   echo "Setting up .config files"
-  stow config -t ../.config
+  stow config -t $HOME/.config
 fi
