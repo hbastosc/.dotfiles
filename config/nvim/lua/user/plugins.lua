@@ -39,10 +39,6 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
-  use {
-    "windwp/nvim-autopairs",
-    config = function() require("nvim-autopairs").setup {} end
-  }
   use "nvim-lua/plenary.nvim"
 
   -- Theme
@@ -71,6 +67,15 @@ return require('packer').startup(function(use)
   -- Fuzzy Finder
   use {
     'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
+  -- Git Integrations
+  use {
+    'TimUntersberger/neogit',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'sindrets/diffview.nvim',
+    }
   }
 
 end)
