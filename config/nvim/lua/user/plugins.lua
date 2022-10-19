@@ -43,6 +43,7 @@ return require('packer').startup(function(use)
 
   -- Theme
   use { "ellisonleao/gruvbox.nvim" }
+  use 'folke/tokyonight.nvim'
 
   -- Buffer Line plugin
   use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
