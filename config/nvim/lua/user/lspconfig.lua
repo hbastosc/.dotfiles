@@ -48,6 +48,7 @@ local lsp_flags = {
   -- This is the default in Nvim 0.7+
   debounce_text_changes = 150,
 }
+
 require('lspconfig')['pyright'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
@@ -63,10 +64,15 @@ require('lspconfig')['svelte'].setup{
     flags = lsp_flags,
 }
 
---require('lspconfig')['tsserver'].setup{
---    on_attach = on_attachu
---    flags = lsp_flags,
---}
+require('lspconfig')['sumneko_lua'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+}
+
+-- require('lspconfig')['tsserver'].setup{
+--     on_attach = on_attach,
+--     flags = lsp_flags,
+-- }
 
 require('lspconfig')['rust_analyzer'].setup{
     on_attach = on_attach,
