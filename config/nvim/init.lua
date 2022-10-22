@@ -14,3 +14,6 @@ require 'user.treesitter'
 require 'user.lspconfig'
 require 'user.intellisense'
 require 'user.telescope'
+
+-- Git
+require 'user.git'

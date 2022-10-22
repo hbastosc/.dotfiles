@@ -39,14 +39,15 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
-  use {
-    "windwp/nvim-autopairs",
-    config = function() require("nvim-autopairs").setup {} end
-  }
   use "nvim-lua/plenary.nvim"
 
   -- Theme
   use { "ellisonleao/gruvbox.nvim" }
+  use { 'folke/tokyonight.nvim' }
+  use {
+  	  "catppuccin/nvim",
+  	  as = "catppuccin",
+  }
 
   -- Buffer Line plugin
   use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
@@ -71,6 +72,15 @@ return require('packer').startup(function(use)
   -- Fuzzy Finder
   use {
     'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
+  -- Git Integrations
+  use {
+    'TimUntersberger/neogit',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'sindrets/diffview.nvim',
+    }
   }
 
 end)

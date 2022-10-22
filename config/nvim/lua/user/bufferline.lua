@@ -8,6 +8,7 @@ diagnostics_indicator = function(count, level, diagnostics_dict, context)
   return s
 end
 
+local frappe = require("catppuccin.palettes").get_palette "frappe"
 require("bufferline").setup{
   options = {
     diagnostics = "nvim_lsp",
@@ -21,4 +22,18 @@ require("bufferline").setup{
       },
     },
   },
+	highlights = require("catppuccin.groups.integrations.bufferline").get {
+		styles = { "italic", "bold" },
+		custom = {
+			all = {
+				fill = { bg = "#000000" },
+			},
+			mocha = {
+				background = { fg = frappe.text },
+			},
+			latte = {
+				background = { fg = "#000000" },
+			},
+		},
+	},
 }
