@@ -1,20 +1,20 @@
 -- Plugins Install
-require 'user.plugins'
+require 'hbastosc.plugins'
 
 -- GUI Plugins
-require 'user.font'
-require 'user.theme'
-require 'user.treesitter'
-require 'user.options'
-require 'user.lualine'
-require 'user.bufferline'
+require 'hbastosc.font'
+require 'hbastosc.theme'
+require 'hbastosc.treesitter'
+require 'hbastosc.options'
+require 'hbastosc.lualine'
+require 'hbastosc.bufferline'
 
 -- LSP and Intellisense
-require 'user.treesitter'
-require 'user.lspconfig'
-require 'user.intellisense'
-require 'user.telescope'
-require 'user.null'
+require 'hbastosc.treesitter'
+require 'hbastosc.lspconfig'
+require 'hbastosc.intellisense'
+require 'hbastosc.telescope'
+require 'hbastosc.null'
 
 -- Git
-require 'user.git'
+require 'hbastosc.git'
