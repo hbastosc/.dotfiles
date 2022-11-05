@@ -10,4 +10,3 @@ require 'hbastosc.options'
 -- LSP and Intellisense
 require 'hbastosc.treesitter'
 require 'hbastosc.lspconfig'
-require 'hbastosc.intellisense'

@@ -4,7 +4,7 @@ local options = {
     cmdheight = 2,                           -- more space in the neovim command line for displaying messages
     completeopt = { "menuone", "noselect" }, -- mostly just for cmp
     conceallevel = 0,                        -- so that `` is visible in markdown files
-    fileencoding = "utf-8",                  -- the encoding written to a file
+    fileencoding = "utf-8",                  -- the encoding written to a fileoptio
     hlsearch = true,                         -- highlight all matches on previous search pattern
     ignorecase = true,                       -- ignore case in search patterns
     mouse = "a",                             -- allow the mouse to be used in neovim
@@ -17,9 +17,7 @@ local options = {
     splitright = true,                       -- force all vertical splits to go to the right of current window
     swapfile = false,                        -- creates a swapfile
     termguicolors = true,                    -- set term gui colors (most terminals support this)
-    timeoutlen = 100,                        -- time to wait for a mapped sequence to complete (in milliseconds)
-    undofile = true,                         -- enable persistent undo
-    updatetime = 300,                        -- faster completion (4000ms default)
+    timeoutlen = 250,                        -- faster completion (4000ms default)
     writebackup = false,                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
     expandtab = true,                        -- convert tabs to spaces
     shiftwidth = 4,                          -- the number of spaces inserted for each indentation
@@ -43,5 +41,5 @@ for k, v in pairs(options) do
 end
 
 vim.opt.shortmess:append "c"
-vim.g.mapleader = ";"
-vim.g.maplocalleader = ";"
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "

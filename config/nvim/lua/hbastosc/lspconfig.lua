@@ -59,11 +59,6 @@ require('lspconfig')['gopls'].setup{
     flags = lsp_flags,
 }
 
-require('lspconfig')['svelte'].setup{
-    on_attach = on_attach,
-    flags = lsp_flags,
-}
-
 require('lspconfig')['sumneko_lua'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
@@ -76,10 +71,10 @@ require('lspconfig')['sumneko_lua'].setup{
     }
 }
 
--- require('lspconfig')['tsserver'].setup{
---     on_attach = on_attach,
---     flags = lsp_flags,
--- }
+require('lspconfig')['tsserver'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+}
 
 require('lspconfig')['rust_analyzer'].setup{
     on_attach = on_attach,
@@ -90,12 +85,8 @@ require('lspconfig')['rust_analyzer'].setup{
     }
 }
 
-require('lspconfig')['volar'].setup{
+require('lspconfig')['terraformls'].setup{
   on_attach = on_attach,
   flags = lsp_flags,
-}
 
-require('lspconfig')['rome'].setup{
-  on_attach = on_attach,
-  flags = lsp_flags,
 }
