@@ -1,7 +1,6 @@
 require("hbastosc.options")
 require("hbastosc.maps")
 require("hbastosc.plugins")
-require("hbastosc.highlights")
 
 local has = vim.fn.has
 local is_mac = has "macunix"

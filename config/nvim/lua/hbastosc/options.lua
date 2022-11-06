@@ -23,8 +23,9 @@ vim.opt.splitright = true   -- force all vertical splits to go to the right of c
 vim.opt.timeoutlen = 250-- faster completion (4000ms default)
 vim.opt.expandtab = true-- convert tabs to spaces
 vim.opt.shiftwidth = 4  -- the number of spaces inserted for each indentation
-vim.opt.tabstop = 4 -- insert 2 spaces for a tab
+vim.opt.tabstop = 4 -- insert 4 spaces for a tab
 vim.opt.cursorline = true   -- highlight the current line
+vim.opt.termguicolors = true
 vim.opt.number = true   -- set numbered lines
 vim.opt.relativenumber = true  -- set relative numbered lines
 vim.opt.numberwidth = 4 -- set number column width to 2 {default 4}
@@ -35,5 +36,4 @@ vim.opt.sidescrolloff = 8
 
 vim.opt.list = true
 vim.opt.colorcolumn = "80"
-vim.opt.background = "dark"
-vim.opt.showmode = false
+vim.opt.showmode = false -- do not show which mode I am in
