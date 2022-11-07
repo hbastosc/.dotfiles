@@ -1,20 +1,14 @@
--- Plugins Install
-require 'user.plugins'
+require("hbastosc.options")
+require("hbastosc.maps")
+require("hbastosc.plugins")
 
--- GUI Plugins
-require 'user.font'
-require 'user.theme'
-require 'user.treesitter'
-require 'user.options'
-require 'user.lualine'
-require 'user.bufferline'
+local has = vim.fn.has
+local is_mac = has "macunix"
+local is_win = has "win32"
 
--- LSP and Intellisense
-require 'user.treesitter'
-require 'user.lspconfig'
-require 'user.intellisense'
-require 'user.telescope'
-require 'user.null'
-
--- Git
-require 'user.git'
+if is_mac then
+  require("hbastosc.macos")
+end
+if is_win then
+  require("hbastosc.windows")
+end
