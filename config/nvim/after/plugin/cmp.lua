@@ -1,4 +1,8 @@
-local cmp = require'cmp'
+local ok, cmp = pcall(require, "cmp")
+if not ok then
+  return
+end
+
 cmp.setup({
   snippet = {
     -- REQUIRED - you must specify a snippet engine
@@ -22,7 +26,7 @@ cmp.setup({
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
-    -- { name = 'vsnip' }, -- For vsnip users.
+    { name = 'vsnip' }, -- For vsnip users.
     { name = 'buffer' },
     -- { name = 'luasnip' }, -- For luasnip users.
     -- { name = 'ultisnips' }, -- For ultisnips users.

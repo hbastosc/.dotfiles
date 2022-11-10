@@ -1,3 +1,8 @@
+local ok, bufferline = pcall(require, "bufferline")
+if not ok then
+  return
+end
+
 diagnostics_indicator = function(count, level, diagnostics_dict, context)
   local s = " "
   for e, n in pairs(diagnostics_dict) do
@@ -8,8 +13,7 @@ diagnostics_indicator = function(count, level, diagnostics_dict, context)
   return s
 end
 
-local flavor = require("catppuccin.palettes").get_palette "mocha"
-require("bufferline").setup{
+bufferline.setup{
   options = {
     diagnostics = "nvim_lsp",
     diagnostics_indicator = diagnostics_indicator,
