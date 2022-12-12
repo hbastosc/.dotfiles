@@ -47,17 +47,11 @@ return require('packer').startup(function(use)
     }
   }
 
-  use "nvim-lua/plenary.nvim"
-  use "onsails/lspkind-nvim" --vscode-like pictograms
-
   -- Theme
-  use { "ellisonleao/gruvbox.nvim" }
-  use { 'folke/tokyonight.nvim' }
   use { "catppuccin/nvim", as = "catppuccin", }
-  use { "rose-pine/neovim" }
 
   -- Buffer Line plugin
-  use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
+  use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
 
   -- Status Line plugin
   use {
@@ -78,14 +72,10 @@ return require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} }
   }
 
-  -- Git Integrations
-  use {
-    'TimUntersberger/neogit',
-    requires = {
-      'nvim-lua/plenary.nvim',
-      'sindrets/diffview.nvim',
-    }
-  }
+  use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+  use('nvim-treesitter/playground')
+  use('theprimeagen/harpoon')
+  use('mbbill/undotree')
+  use('tpope/vim-fugitive')
 
-  use { 'mbbill/undotree' }
 end)
