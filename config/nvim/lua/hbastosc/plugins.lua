@@ -25,9 +25,6 @@ return require('packer').startup(function(use)
   -- Fonts
   use 'kyazdani42/nvim-web-devicons'
 
-  -- Post-install/update hook with neovim command
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-
   use {
     'VonHeikemen/lsp-zero.nvim',
     requires = {
@@ -68,10 +65,6 @@ return require('packer').startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 
-  use {
-      "SmiteshP/nvim-navic",
-      requires = "neovim/nvim-lspconfig"
-  }
   -- Git
   use {
     'lewis6991/gitsigns.nvim',
@@ -94,4 +87,5 @@ return require('packer').startup(function(use)
     }
   }
 
+  use { 'mbbill/undotree' }
 end)
