@@ -2,6 +2,8 @@ require("hbastosc.options")
 require("hbastosc.maps")
 require("hbastosc.packer")
 
+local autocmd = vim.api.nvim_create_autocmd
+
 local has = vim.fn.has
 local is_mac = has "macunix"
 local is_win = has "win32"

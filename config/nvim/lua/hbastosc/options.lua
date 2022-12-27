@@ -1,5 +1,3 @@
-vim.cmd("autocmd!")
-
 vim.scriptencoding = 'utf-8'
 vim.opt.encoding = 'utf-8'
 vim.opt.fileencoding = 'utf-8'
@@ -25,7 +23,7 @@ vim.opt.expandtab = true-- convert tabs to spaces
 vim.opt.shiftwidth = 4  -- the number of spaces inserted for each indentation
 vim.opt.tabstop = 4 -- insert 4 spaces for a tab
 vim.opt.cursorline = true   -- highlight the current line
-vim.opt.termguicolors = false
+vim.opt.termguicolors = true
 vim.opt.number = true   -- set numbered lines
 vim.opt.relativenumber = true  -- set relative numbered lines
 vim.opt.numberwidth = 4 -- set number column width to 2 {default 4}
