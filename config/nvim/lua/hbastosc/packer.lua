@@ -52,7 +52,7 @@ return require('packer').startup(function(use)
   use { "catppuccin/nvim", as = "catppuccin", }
 
   -- Buffer Line plugin
-  use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
+  -- use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
 
   -- Status Line plugin
   use {

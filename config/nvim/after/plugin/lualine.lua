@@ -1,5 +1,6 @@
 require('lualine').setup({
-  options = {
-    theme = "catppuccin",
-  }
+    options = {
+        theme = "catppuccin",
+    },
+    sections = { lualine_c = { 'buffers' } }
 })
