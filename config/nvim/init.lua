@@ -1,6 +1,6 @@
 require("hbastosc.options")
 require("hbastosc.maps")
-require("hbastosc.packer")
+require("hbastosc.lazynvim")
 
 local autocmd = vim.api.nvim_create_autocmd
 
