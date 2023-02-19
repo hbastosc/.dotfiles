@@ -1,6 +1,6 @@
-vim.g.catppuccin_flavour = "frappe" -- latte, frappe, macchiato, mocha
+vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
 require("catppuccin").setup({
-    transparent_background = true,
+    transparent_background = false,
     integrations = {
         neogit = true,
         cmp = true,
