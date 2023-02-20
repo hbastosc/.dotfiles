@@ -20,23 +20,38 @@ require("lazy").setup({
   "mbbill/undotree",
   "theprimeagen/harpoon",
   {
+    "rose-pine/neovim",
+     name = "rose-pine",
+     lazy = false,
+     priority = 1000,
+     config = function()
+       require("rose-pine").setup({
+         disable_background = true,
+         disable_italics = true,
+       })
+       vim.cmd("colorscheme rose-pine")
+     end
+  },
+  {
     "VonHeikemen/lsp-zero.nvim",
+    branch = "v1.x",
     dependencies = {
-      "neovim/nvim-lspconfig",
-      "williamboman/mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
+      -- LSP Support
+      {"neovim/nvim-lspconfig"},             -- Required
+      {"williamboman/mason.nvim"},           -- Optional
+      {"williamboman/mason-lspconfig.nvim"}, -- Optional
 
       -- Autocompletion
-      "hrsh7th/nvim-cmp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "saadparwaiz1/cmp_luasnip",
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-nvim-lua",
+      {"hrsh7th/nvim-cmp"},         -- Required
+      {"hrsh7th/cmp-nvim-lsp"},     -- Required
+      {"hrsh7th/cmp-buffer"},       -- Optional
+      {"hrsh7th/cmp-path"},         -- Optional
+      {"saadparwaiz1/cmp_luasnip"}, -- Optional
+      {"hrsh7th/cmp-nvim-lua"},     -- Optional
 
       -- Snippets
-      "L3MON4D3/LuaSnip",
-      "rafamadriz/friendly-snippets",
+      {"L3MON4D3/LuaSnip"},             -- Required
+      {"rafamadriz/friendly-snippets"}, -- Optional
     }
   },
   {
@@ -44,12 +59,9 @@ require("lazy").setup({
     dependencies = {"nvim-lua/plenary.nvim"}
   },
   {
-    "catppuccin/nvim"
-  },
-  {
     "lewis6991/gitsigns.nvim",
     config = function ()
-      require('gitsigns').setup()
+      require("gitsigns").setup()
     end
   }
 })
