@@ -19,6 +19,8 @@ require("lazy").setup({
   "nvim-lualine/lualine.nvim",
   "mbbill/undotree",
   "theprimeagen/harpoon",
+  "akinsho/bufferline.nvim",
+  "jose-elias-alvarez/null-ls.nvim",
   {
     "rose-pine/neovim",
      name = "rose-pine",
@@ -27,7 +29,7 @@ require("lazy").setup({
      config = function()
        require("rose-pine").setup({
          disable_background = true,
-         disable_italics = true,
+         disable_italics = false,
        })
        vim.cmd("colorscheme rose-pine")
      end
