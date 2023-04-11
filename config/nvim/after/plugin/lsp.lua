@@ -18,6 +18,8 @@ local on_attach = function(_, bufnr)
     nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
     nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
+    nmap('[d', vim.diagnostic.goto_next, '')
+    nmap(']d', vim.diagnostic.goto_prev, '')
     nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
     nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
     nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
@@ -102,10 +104,12 @@ cmp.setup {
             luasnip.lsp_expand(args.body)
         end,
     },
-    completion = {
-        completeopt = 'menu,menuone,noinsert,noselect',
-    },
-    preselect = cmp.PreselectMode.None,
+    -- code below will make suggestion to no appear in the middle
+    -- completion = {
+    --     completeopt = 'menu,menuone,noinsert,noselect',
+    -- },
+    -- preselect = cmp.PreselectMode.None,
+    -- ends here
     mapping = cmp.mapping.preset.insert {
         ['<C-d>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -138,3 +142,4 @@ cmp.setup {
         { name = 'luasnip' },
     },
 }
+
