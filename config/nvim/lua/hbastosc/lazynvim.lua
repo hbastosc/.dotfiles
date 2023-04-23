@@ -32,6 +32,17 @@ require("lazy").setup({
             require("rose-pine").setup({
                 disable_background = true,
                 disable_italics = false,
+                highlight_groups = {
+                    ColorColumn = { bg = "gold", blend = 30 },
+                    CursorLine = { bg = "rose", blend = 20 },
+                    CursorLineNr = { fg = "gold" },
+                    TelescopeBorder = { fg = "highlight_high", bg = "none" },
+                    TelescopeNormal = { bg = "none" },
+                    TelescopePromptNormal = { bg = "base" },
+                    TelescopeResultsNormal = { fg = "subtle", bg = "none" },
+                    TelescopeSelection = { fg = "text", bg = "base" },
+                    TelescopeSelectionCaret = { fg = "rose", bg = "rose" },
+                }
             })
             vim.cmd("colorscheme rose-pine")
         end
