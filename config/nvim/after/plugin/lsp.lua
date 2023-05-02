@@ -15,8 +15,8 @@ local on_attach = function(_, bufnr)
         vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
     end
 
-    -- nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-    -- nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+    nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+    nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
     nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
     nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
@@ -45,9 +45,9 @@ local on_attach = function(_, bufnr)
     -- Custom binds
     nmap('[d', vim.diagnostic.goto_next, '')
     nmap(']d', vim.diagnostic.goto_prev, '')
-    nmap('<leader>vca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-    nmap('<leader>vrr', vim.lsp.buf.references, '')
-    nmap('<leader>vrn', vim.lsp.buf.rename, '')
+    -- nmap('<leader>vca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+    -- nmap('<leader>vrr', vim.lsp.buf.references, '')
+    --nmap('<leader>vrn', vim.lsp.buf.rename, '[R]e[N]ame')
 end
 
 -- Enable the following language servers

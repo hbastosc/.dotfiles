@@ -33,8 +33,8 @@ require("lazy").setup({
                 disable_background = true,
                 disable_italics = false,
                 highlight_groups = {
+                    CursorLine = { bg = "rose", blend = 3 },
                     ColorColumn = { bg = "gold", blend = 30 },
-                    CursorLine = { bg = "rose", blend = 20 },
                     CursorLineNr = { fg = "gold" },
                     TelescopeBorder = { fg = "highlight_high", bg = "none" },
                     TelescopeNormal = { bg = "none" },
@@ -75,4 +75,10 @@ require("lazy").setup({
         "nvim-telescope/telescope.nvim",
         dependencies = { "nvim-lua/plenary.nvim" }
     },
+    --
+    -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
+    --       These are some example plugins that I've included in the kickstart repository.
+    --       Uncomment any of the lines below to enable them.
+    require 'autoformat',
+    -- require 'kickstart.plugins.debug',
 })
