@@ -45,10 +45,11 @@ require("lazy").setup({
                 }
             })
             vim.cmd("colorscheme rose-pine")
+            -- vim.cmd("colorscheme rose-pine-dawn")
         end
     },
     {
-        "neovim/nvim-lspconfig",
+        'neovim/nvim-lspconfig',
         dependencies = {
             -- LSP Support
             { "williamboman/mason.nvim" },           -- Optional
@@ -69,7 +70,7 @@ require("lazy").setup({
             -- Useful status updates for LSP
             -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
             { 'j-hui/fidget.nvim',                opts = {} },
-        }
+        },
     },
     {
         "nvim-telescope/telescope.nvim",
@@ -79,6 +80,6 @@ require("lazy").setup({
     -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
     --       These are some example plugins that I've included in the kickstart repository.
     --       Uncomment any of the lines below to enable them.
-    require 'hbastosc.autoformat',
+    -- require 'hbastosc.autoformat',
     -- require 'kickstart.plugins.debug',
 })
