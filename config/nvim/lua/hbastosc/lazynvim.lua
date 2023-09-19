@@ -12,15 +12,12 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    "kyazdani42/nvim-web-devicons",
     "nvim-treesitter/nvim-treesitter",
     "nvim-treesitter/playground",
     "tpope/vim-fugitive",
     "nvim-lualine/lualine.nvim",
     "mbbill/undotree",
     "theprimeagen/harpoon",
-    "akinsho/bufferline.nvim",
-    "jose-elias-alvarez/null-ls.nvim",
     "folke/neodev.nvim",
     "lewis6991/gitsigns.nvim",
     {
@@ -52,8 +49,8 @@ require("lazy").setup({
         'neovim/nvim-lspconfig',
         dependencies = {
             -- LSP Support
-            { "williamboman/mason.nvim" },           -- Optional
-            { "williamboman/mason-lspconfig.nvim" }, -- Optional
+            { "williamboman/mason.nvim",          config = true }, -- Optional
+            { "williamboman/mason-lspconfig.nvim" },               -- Optional
 
             -- Autocompletion
             { "hrsh7th/nvim-cmp" },         -- Required
@@ -69,17 +66,20 @@ require("lazy").setup({
 
             -- Useful status updates for LSP
             -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-            { 'j-hui/fidget.nvim',                opts = {} },
+            { 'j-hui/fidget.nvim',                tag = 'legacy', opts = {} },
         },
     },
     {
         "nvim-telescope/telescope.nvim",
         dependencies = { "nvim-lua/plenary.nvim" }
     },
-    --
-    -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
-    --       These are some example plugins that I've included in the kickstart repository.
-    --       Uncomment any of the lines below to enable them.
-    -- require 'hbastosc.autoformat',
-    -- require 'kickstart.plugins.debug',
+    {
+        "folke/trouble.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        opts = {
+            -- your configuration comes here
+            -- or leave it empty to use the default settings
+            -- refer to the configuration section below
+        }
+    }
 })
