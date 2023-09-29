@@ -20,6 +20,7 @@ require("lazy").setup({
     "theprimeagen/harpoon",
     "folke/neodev.nvim",
     "lewis6991/gitsigns.nvim",
+    "rcarriga/nvim-notify",
     {
         "rose-pine/neovim",
         name = "rose-pine",
