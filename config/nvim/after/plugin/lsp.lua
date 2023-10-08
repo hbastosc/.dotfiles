@@ -56,12 +56,6 @@ end
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
-    -- clangd = {},
-    -- gopls = {},
-    -- pyright = {},
-    -- rust_analyzer = {},
-    -- tsserver = {},
-
     lua_ls = {
         Lua = {
             workspace = { checkThirdParty = false },
@@ -100,7 +94,6 @@ mason_lspconfig.setup_handlers {
 -- nvim-cmp setup
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
-
 luasnip.config.setup({})
 
 cmp.setup {
@@ -109,12 +102,10 @@ cmp.setup {
             luasnip.lsp_expand(args.body)
         end,
     },
-    -- code below will make suggestion to no appear in the middle
-    -- completion = {
-    --     completeopt = 'menu,menuone,noinsert,noselect',
-    -- },
-    -- preselect = cmp.PreselectMode.None,
-    -- ends here
+    sources = {
+        { name = 'nvim_lsp' },
+        { name = 'luasnip' },
+    },
     mapping = cmp.mapping.preset.insert {
         ['<C-d>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -123,28 +114,23 @@ cmp.setup {
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
         },
-        ['<Tab>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_next_item()
-            elseif luasnip.expand_or_jumpable() then
-                luasnip.expand_or_jump()
-            else
-                fallback()
-            end
-        end, { 'i', 's' }),
-        ['<S-Tab>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-                luasnip.jump(-1)
-            else
-                fallback()
-            end
-        end, { 'i', 's' }),
-    },
-    sources = {
-        { name = 'nvim_lsp' },
-        { name = 'luasnip' },
+        -- ['<Tab>'] = cmp.mapping(function(fallback)
+        --     if cmp.visible() then
+        --         cmp.select_next_item()
+        --     elseif luasnip.expand_or_jumpable() then
+        --         luasnip.expand_or_jump()
+        --     else
+        --         fallback()
+        --     end
+        -- end, { 'i', 's' }),
+        -- ['<S-Tab>'] = cmp.mapping(function(fallback)
+        --     if cmp.visible() then
+        --         cmp.select_prev_item()
+        --     elseif luasnip.jumpable(-1) then
+        --         luasnip.jump(-1)
+        --     else
+        --         fallback()
+        --     end
+        -- end, { 'i', 's' }),
     },
 }
-
