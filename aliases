@@ -1,0 +1,19 @@
+alias python="python3"
+alias morebright="xrandr --output eDP-1 --brightness 1.0"
+alias lessbright="xrandr --output eDP-1 --brightness 0.5"
+function dlk() {
+    device='AT Translated Set 2 keyboard'
+    xinput --set-prop $device 'Device Enabled' 0
+}
+function elk() {
+    device='AT Translated Set 2 keyboard'
+    xinput --set-prop $device 'Device Enabled' 1
+}
+function dtpd() {
+    device='DELL0825:00 06CB:7E92 Touchpad'
+    xinput --set-prop $device 'Device Enabled' 0
+}
+function etpd() {
+    device='DELL0825:00 06CB:7E92 Touchpad'
+    xinput --set-prop $device 'Device Enabled' 1
+}
