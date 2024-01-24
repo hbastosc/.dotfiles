@@ -37,3 +37,6 @@ keymap.set("n", "<leader>xd", function() require("trouble").open("document_diagn
 keymap.set("n", "<leader>xq", function() require("trouble").open("quickfix") end)
 keymap.set("n", "<leader>xl", function() require("trouble").open("loclist") end)
 keymap.set("n", "gR", function() require("trouble").open("lsp_references") end)
+
+-- easy exit terinal
+keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>")

@@ -21,6 +21,13 @@ require("lazy").setup({
     "folke/neodev.nvim",
     "lewis6991/gitsigns.nvim",
     "rcarriga/nvim-notify",
+    -- Detect tabstop and shiftwidth automatically
+    'tpope/vim-sleuth',
+    -- Useful plugin to show you pending keybinds.
+    {
+        'folke/which-key.nvim',
+        opts = {}
+    },
     {
         "rose-pine/neovim",
         name = "rose-pine",
@@ -82,5 +89,8 @@ require("lazy").setup({
             -- or leave it empty to use the default settings
             -- refer to the configuration section below
         }
+    },
+    {
+        'github/copilot.vim'
     }
 })
