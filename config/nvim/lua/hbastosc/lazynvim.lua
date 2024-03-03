@@ -12,8 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    "nvim-treesitter/nvim-treesitter",
-    "nvim-treesitter/playground",
+    'github/copilot.vim',
     "tpope/vim-fugitive",
     "nvim-lualine/lualine.nvim",
     "mbbill/undotree",
@@ -23,63 +22,97 @@ require("lazy").setup({
     "rcarriga/nvim-notify",
     -- Detect tabstop and shiftwidth automatically
     'tpope/vim-sleuth',
-    -- Useful plugin to show you pending keybinds.
-    {
-        'folke/which-key.nvim',
-        opts = {}
-    },
-    {
-        "rose-pine/neovim",
-        name = "rose-pine",
-        lazy = false,
-        priority = 1000,
+    { -- Highlight, edit, and navigate code
+        'nvim-treesitter/nvim-treesitter',
+        build = ':TSUpdate',
         config = function()
-            require("rose-pine").setup({
-                disable_background = true,
-                disable_italics = false,
-                highlight_groups = {
-                    CursorLine = { bg = "rose", blend = 3 },
-                    ColorColumn = { bg = "gold", blend = 30 },
-                    CursorLineNr = { fg = "gold" },
-                    TelescopeBorder = { fg = "highlight_high", bg = "none" },
-                    TelescopeNormal = { bg = "none" },
-                    TelescopePromptNormal = { bg = "base" },
-                    TelescopeResultsNormal = { fg = "subtle", bg = "none" },
-                    TelescopeSelection = { fg = "text", bg = "base" },
-                    TelescopeSelectionCaret = { fg = "rose", bg = "rose" },
-                }
-            })
-            vim.cmd("colorscheme rose-pine")
-            -- vim.cmd("colorscheme rose-pine-dawn")
-        end
+            -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
+
+            ---@diagnostic disable-next-line: missing-fields
+            require('nvim-treesitter.configs').setup {
+                ensure_installed = { 'bash', 'c', 'html', 'lua', 'markdown', 'vim', 'vimdoc' },
+                -- Autoinstall languages that are not installed
+                auto_install = true,
+                highlight = { enable = true },
+                indent = { enable = true },
+            }
+
+            -- There are additional nvim-treesitter modules that you can use to interact
+            -- with nvim-treesitter. You should go explore a few and see what interests you:
+            --
+            --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
+            --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
+            --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+        end,
     },
-    {
-        'neovim/nvim-lspconfig',
+    { -- Fuzzy Finder (files, lsp, etc)
+        'nvim-telescope/telescope.nvim',
+        event = 'VimEnter',
+        branch = '0.1.x',
         dependencies = {
-            -- LSP Support
-            { "williamboman/mason.nvim",          config = true }, -- Optional
-            { "williamboman/mason-lspconfig.nvim" },               -- Optional
+            'nvim-lua/plenary.nvim',
+            { -- If encountering errors, see telescope-fzf-native README for install instructions
+                'nvim-telescope/telescope-fzf-native.nvim',
 
-            -- Autocompletion
-            { "hrsh7th/nvim-cmp" },         -- Required
-            { "hrsh7th/cmp-nvim-lsp" },     -- Required
-            { "hrsh7th/cmp-buffer" },       -- Optional
-            { "hrsh7th/cmp-path" },         -- Optional
-            { "saadparwaiz1/cmp_luasnip" }, -- Optional
-            { "hrsh7th/cmp-nvim-lua" },     -- Optional
+                -- `build` is used to run some command when the plugin is installed/updated.
+                -- This is only run then, not every time Neovim starts up.
+                build = 'make',
 
-            -- Snippets
-            { "L3MON4D3/LuaSnip" },             -- Required
-            { "rafamadriz/friendly-snippets" }, -- Optional
+                -- `cond` is a condition used to determine whether this plugin should be
+                -- installed and loaded.
+                cond = function()
+                    return vim.fn.executable 'make' == 1
+                end,
+            },
+            { 'nvim-telescope/telescope-ui-select.nvim' },
 
-            -- Useful status updates for LSP
-            -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-            { 'j-hui/fidget.nvim',                tag = 'legacy', opts = {} },
+            -- Useful for getting pretty icons, but requires special font.
+            --  If you already have a Nerd Font, or terminal set up with fallback fonts
+            --  you can enable this
+            -- { 'nvim-tree/nvim-web-devicons' }
         },
-    },
-    {
-        "nvim-telescope/telescope.nvim",
-        dependencies = { "nvim-lua/plenary.nvim" }
+        config = function()
+            -- Telescope is a fuzzy finder that comes with a lot of different things that
+            -- it can fuzzy find! It's more than just a "file finder", it can search
+            -- many different aspects of Neovim, your workspace, LSP, and more!
+            --
+            -- The easiest way to use telescope, is to start by doing something like:
+            --  :Telescope help_tags
+            --
+            -- After running this command, a window will open up and you're able to
+            -- type in the prompt window. You'll see a list of help_tags options and
+            -- a corresponding preview of the help.
+            --
+            -- Two important keymaps to use while in telescope are:
+            --  - Insert mode: <c-/>
+            --  - Normal mode: ?
+            --
+            -- This opens a window that shows you all of the keymaps for the current
+            -- telescope picker. This is really useful to discover what Telescope can
+            -- do as well as how to actually do it!
+
+            -- [[ Configure Telescope ]]
+            -- See `:help telescope` and `:help telescope.setup()`
+            require('telescope').setup {
+                -- You can put your default mappings / updates / etc. in here
+                --  All the info you're looking for is in `:help telescope.setup()`
+                --
+                -- defaults = {
+                --   mappings = {
+                --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
+                --   },
+                -- },
+                -- pickers = {}
+                extensions = {
+                    ['ui-select'] = {
+                        require('telescope.themes').get_dropdown(),
+                    },
+                },
+            }
+            -- Enable telescope extensions, if they are installed
+            pcall(require('telescope').load_extension, 'fzf')
+            pcall(require('telescope').load_extension, 'ui-select')
+        end,
     },
     {
         "folke/trouble.nvim",
@@ -90,7 +123,5 @@ require("lazy").setup({
             -- refer to the configuration section below
         }
     },
-    {
-        'github/copilot.vim'
-    }
+    { import = 'plugins' },
 })

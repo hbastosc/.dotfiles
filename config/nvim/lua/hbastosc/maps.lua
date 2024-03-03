@@ -1,11 +1,7 @@
 local keymap = vim.keymap
 
 -- Do not yank with x
-keymap.set('n', 'x', '"_x')
-
-keymap.set("n", "<leader>f", function()
-    vim.lsp.buf.format()
-end)
+keymap.set("n", "x", '"_x')
 
 keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
@@ -30,13 +26,27 @@ keymap.set("n", "<leader>sx", "<cmd>close<CR>")
 keymap.set("n", "<leader>nh", "<cmd>nohl<CR>")
 
 -- Trouble remaps
-keymap.set("n", "<leader>xx", function() require("trouble").open() end)
-keymap.set("n", "<leader>xc", function() require("trouble").close() end)
-keymap.set("n", "<leader>xw", function() require("trouble").open("workspace_diagnostics") end)
-keymap.set("n", "<leader>xd", function() require("trouble").open("document_diagnostics") end)
-keymap.set("n", "<leader>xq", function() require("trouble").open("quickfix") end)
-keymap.set("n", "<leader>xl", function() require("trouble").open("loclist") end)
-keymap.set("n", "gR", function() require("trouble").open("lsp_references") end)
+keymap.set("n", "<leader>xx", function()
+	require("trouble").open()
+end)
+keymap.set("n", "<leader>xc", function()
+	require("trouble").close()
+end)
+keymap.set("n", "<leader>xw", function()
+	require("trouble").open("workspace_diagnostics")
+end)
+keymap.set("n", "<leader>xd", function()
+	require("trouble").open("document_diagnostics")
+end)
+keymap.set("n", "<leader>xq", function()
+	require("trouble").open("quickfix")
+end)
+keymap.set("n", "<leader>xl", function()
+	require("trouble").open("loclist")
+end)
+keymap.set("n", "gR", function()
+	require("trouble").open("lsp_references")
+end)
 
 -- easy exit terinal
 keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>")
