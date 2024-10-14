@@ -1,3 +1,4 @@
+vim.filetype.add({ extension = { templ = "templ" } })
 return { -- LSP Configuration & Plugins
 	"neovim/nvim-lspconfig",
 	dependencies = {
@@ -94,6 +95,9 @@ return { -- LSP Configuration & Plugins
 				--  For example, in C this would take you to the header
 				map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
+				map("[d", vim.diagnostic.goto_next, "")
+				map("]d", vim.diagnostic.goto_prev, "")
+
 				-- The following two autocommands are used to highlight references of the
 				-- word under your cursor when your cursor rests there for a little while.
 				--    See `:help CursorHold` for information about when this is executed
@@ -133,7 +137,19 @@ return { -- LSP Configuration & Plugins
 		local servers = {
 			-- clangd = {},
 			gopls = {},
-			-- pyright = {},
+			-- golangci_lint_ls = {},
+			templ = {
+				filetypes = { "templ" },
+			},
+			html = {
+				filetypes = { "html" },
+			},
+			htmx = {
+				filetypes = { "html", "templ" },
+			},
+			pyright = {},
+			tailwindcss = {},
+			vuels = {},
 			-- rust_analyzer = {},
 			-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
 			--
@@ -141,9 +157,11 @@ return { -- LSP Configuration & Plugins
 			--    https://github.com/pmizio/typescript-tools.nvim
 			--
 			-- But for many setups, the LSP (`tsserver`) will work just fine
-			-- tsserver = {},
+			-- tsserver = {
+			-- 	filetypes = { "js", "ts", "jsx", "tsx", "templ", "html" },
+			-- },
 			--
-
+			terraformls = {},
 			lua_ls = {
 				-- cmd = {...},
 				-- filetypes { ...},
