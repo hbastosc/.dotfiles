@@ -142,14 +142,14 @@ return { -- LSP Configuration & Plugins
 				filetypes = { "templ" },
 			},
 			html = {
-				filetypes = { "html" },
+				filetypes = { "html", "templ" },
 			},
 			htmx = {
 				filetypes = { "html", "templ" },
 			},
 			pyright = {},
 			tailwindcss = {},
-			vuels = {},
+			-- vuels = {},
 			-- rust_analyzer = {},
 			-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
 			--
@@ -157,7 +157,7 @@ return { -- LSP Configuration & Plugins
 			--    https://github.com/pmizio/typescript-tools.nvim
 			--
 			-- But for many setups, the LSP (`tsserver`) will work just fine
-			-- tsserver = {
+			-- ts_ls = {
 			-- 	filetypes = { "js", "ts", "jsx", "tsx", "templ", "html" },
 			-- },
 			--
